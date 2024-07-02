@@ -19,10 +19,10 @@ public class Ticket
     }
 
     //  Declaration of the Ticket constructor that saves rowLetter and seatNumber in Ticket class. Object in cancel_seat method of PlaneManagement class
-    public Ticket ( char rowLetter , int seatNumber )
+    public Ticket ( char row_letter , int seat_number )
     {
-        this.RowLetter = rowLetter;
-        this.SeatNumber = seatNumber;
+        this.RowLetter = row_letter;
+        this.SeatNumber = seat_number;
     }
 
     //  Declaration of TicketInformation Method which contains Ticket Details , Person Information and prints out when invoked.
@@ -36,6 +36,14 @@ public class Ticket
         Person.PersonInformation();
     }
 
+    public void CustomerDetails()
+    {
+        System.out.println("\t|-------|" + RowLetter + "-" + SeatNumber + "|----------------------------------|");
+        System.out.println("\t ■ CUSTOMER NAME  = " + Person.getName() + " " + Person.getSurname());
+        System.out.println("\t ■ CUSTOMER EMAIL = " + Person.getEmail());
+        System.out.println("\t|----------------------------------------------|\n");
+    }
+
 
     // Declaration of a method to save and write Ticket Information and User Details into a File when called upon.
     public void SaveFile()
@@ -43,7 +51,6 @@ public class Ticket
         String FileName = "" + RowLetter + "" + SeatNumber + ".txt";
 
         try
-                
         {
             FileWriter file_writer = new FileWriter(FileName);
 

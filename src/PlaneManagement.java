@@ -35,7 +35,7 @@ public class PlaneManagement {
         tickets_array[3] = new Ticket[14];
 
 
-        System.out.println("\n\tWELCOME TO THE PLANE MANAGEMENT APPLICATION\n");
+        System.out.println("\n  | WELCOME TO THE PLANE MANAGEMENT APPLICATION ||\n");
 
 
         boolean print_menu = true;
@@ -62,7 +62,7 @@ public class PlaneManagement {
             {
                 try
                 {
-                    System.out.print("Select An Option : ");
+                    System.out.print("SELECT AN OPTION : ");
                     int option = input.nextInt();
 
                     switch (option)
@@ -357,22 +357,20 @@ public class PlaneManagement {
     /**
      * | OPTION : 04 | METHOD : show_seat_planning() |
      * @param seats_array
-     * @Functionality : This method will display the seat plan for available and unavailable seats and also a menu for the prices of seat categories
+     * @Functionality : This method will display the seat plan for available and unavailable seats.
      */
     static void show_seat_planing(int[][] seats_array)
     {
 
-        System.out.println("\n\n\n|===================| SEAT PLAN |===================|\n\n");
+        System.out.println("\n\n\n|===================| SEAT PLAN |===================|\n");
 
         char row_letter = 'A';
 
-        System.out.println("----------------------------------------------------");
-        System.out.println("| SEAT |  1  2  3  4  5  6  7  8  9 10 11 12 13 14 |");
-        System.out.println("----------------------------------------------------");
+        System.out.println("\t\t  1  2  3  4  5  6  7  8  9 10 11 12 13 14\n");
 
         for (int[] row_element : seats_array)
         {
-            System.out.print(" ROW " + row_letter + " |  ");
+            System.out.print(" ROW " + row_letter + " :  ");
 
             for (int seat_element : row_element)
             {
@@ -388,20 +386,6 @@ public class PlaneManagement {
             System.out.println();
             row_letter++;
         }
-
-        System.out.println("----------------------------------------------------");
-
-        System.out.println("""
-                
-                             --------------------------
-                             |   SEAT NO   |   PRICE  |
-                             --------------------------
-                             |   1 - 5     |   $200   |
-                             |   6 - 9     |   $150   |
-                             |   10 - 14   |   $180   |
-                             --------------------------
-                """);
-
 
         System.out.println("\n|===================================================|\n\n\n");
     }
@@ -452,7 +436,20 @@ public class PlaneManagement {
         System.out.println("\t\t  ----------------------------------");
         System.out.println("\t\t\t     TOTAL PRICE   =   $" + total_amount);
         System.out.println("\t\t  ----------------------------------\n");
-        System.out.println("\t\t  TOTAL NUMBER OF SEATS BOOKED  =  " + total_seats_booked);
+
+        System.out.println("\t ■ NUMBER OF BOOKED SEATS  =  " + total_seats_booked + "\n");
+
+
+        for (Ticket[] row : tickets_array)
+        {
+            for (Ticket ticket : row)
+            {
+                if (ticket != null)
+                {
+                    ticket.CustomerDetails();
+                }
+            }
+        }
 
 
 
